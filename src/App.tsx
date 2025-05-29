@@ -2,7 +2,7 @@ import React from 'react'
 import Background from './components/Background'
 const App = () => {
   return (
-    <div>
+    <div className='w-screen h-screen'>
       <Background />
     </div>
   )
