@@ -1,21 +1,18 @@
 'use client';
-import React from 'react'
+import { useThree } from "@react-three/fiber";
 import Navbar from './components/Navbar'
 import { Canvas } from "@react-three/fiber";
 import { Stars, PerspectiveCamera, OrbitControls } from "@react-three/drei";
+
+const MouseCamera = () => {
+  const camera = useThree((state) => state.camera);
+}
 const page = () => {
   return (
     <div className='h-screen w-screen overflow-hidden'>
-      <nav className="sticky top-0 left-0 bg-">
-        <Navbar />
-      </nav>
-      <header className="relative w-full h-full">
-        <Canvas camera={{ position: [0, 0, 5] }}>
-          <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-          <OrbitControls />
-          {/* <Stars radius={50} depth={100} count={100}/> */}
-          <Stars />
-          </Canvas>
+
+      <header className="relative w-full h-full z-100">
+     
       
         <div className="absolute  top-0 left-0  z-10 flex wrapper justify-center items-center w-full h-full uppercase">
           <div className="flex flex-col justify-center text-center">
