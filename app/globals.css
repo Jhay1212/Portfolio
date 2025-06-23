@@ -37,6 +37,9 @@ body {
   .nav_item {
     @apply   pl-2 tracking-[3px];
   }
+  .flex-center {
+    @apply flex items-center justify-center md:flex-col md:justify-center md:items-center;
+  }
 }
 
 

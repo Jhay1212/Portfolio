@@ -1,6 +1,8 @@
 'use client';
 import { useGLTF } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useRef } from "react";
+import * as THREE from "three";
 const BlackHole = () => {
   const { scene } = useGLTF("/scene.gltf");
   return (
