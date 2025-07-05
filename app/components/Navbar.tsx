@@ -10,7 +10,7 @@ const Navbar = () => {
         <h2><a href="/">Logo</a></h2>
         <ul className="flex justiify-between items-center">
           <li className="nav_item montserrat-nav "><a href='/myprojects'>My Projects</a></li>
-          <li className="nav_item montserrat-nav"><a href="/about">About Me</a></li>
+          <li className="nav_item montserrat-nav"><a href="/aboutme">About Me</a></li>
           <li className="nav_item montserrat-nav">Contacts</li>
         </ul>
       </div>

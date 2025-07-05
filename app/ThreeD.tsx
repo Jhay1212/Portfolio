@@ -17,7 +17,7 @@ const createCircleTexture = () => {
     const canvas: HTMLCanvasElement = document.createElement('canvas')
     canvas.width = 64
     canvas.height = 64
-    const ctx = canvas.getContext('2d')
+    const ctx: CanvasRenderingContext2D = canvas.getContext('2d')
 
     // Create radial gradient for smooth circular star
     const gradient = ctx.createRadialGradient(32, 32, 0, 32, 32, 32)
