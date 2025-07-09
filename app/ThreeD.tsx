@@ -3,9 +3,7 @@ import React, { Suspense } from 'react'
 
 import { Canvas } from '@react-three/fiber'
 import { Stars, PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import BlackHole from './components/BlackHole';
-import Andromeda from './components/Andromeda';
-import Andro from './assets/blueblackhole/andro.jpg';
+
 import Image from 'next/image';
 import { Points, PointMaterial } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber';

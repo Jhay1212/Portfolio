@@ -5,11 +5,13 @@ import { PerspectiveCamera, OrbitControls, Stars } from '@react-three/drei';
 import Navbar from '../components/Navbar';
 import WebsiteShowCase from '../components/WebsiteShowCase';
 import Home from '../assets/nexus/home.png';
+import SocMedHome from "../assets/socmed/home.png";
 import EpHome from '../assets/ephsm/home.jpg';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Suspense } from 'react';
 import "../assets/projects.main.css";
+import { image } from 'framer-motion/client';
 
 const page = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -20,19 +22,29 @@ const page = () => {
       id: 1,
       image: Home,
       title: "Nexus Cloud Website",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, consequuntur? Doloremque dolorum voluptate ratione nisi ea, aperiam tempora rem atque eveniet, obcaecati modi distinctio officia impedit minus suscipit assumenda perferendis!"
+      link: "https://github.com/JesnerPerillo/NexusCloud-1",
+      description: "Created using React and ExpressJS. Built for the company of my ojt in web development."
     },
     {
       id: 2,
       image: EpHome,
+      link: "https://github.com/Jhay1212/Philippines-History-Supplementary-Module",
       title: "EPHSM Platform",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, consequuntur? Doloremque dolorum voluptate ratione nisi ea, aperiam tempora rem atque eveniet, obcaecati modi distinctio officia impedit minus suscipit assumenda perferendis!"
+      description: "A E-learning module platform for Philippine History. It has a user authentication system, post creation and management, and a like and comment system and interactive learning  thatincludes pictures games and videos of Philippine History."
     },
     {
       id: 3,
       image: Home,
       title: "Portfolio Website",
-      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, consequuntur? Doloremque dolorum voluptate ratione nisi ea, aperiam tempora rem atque eveniet, obcaecati modi distinctio officia impedit minus suscipit assumenda perferendis!"
+      description: "My portfolio website. Created using NextJS with GSAP and Tailwindcss!",
+      link: "https://github.com/Jhay1212/Portfolio"
+    },
+    {
+      id: 4,
+      image: SocMedHome,
+      title: "Social Media Clone Website",
+      description: "A social media website clone developed using Django and ReactJS. It has a user authentication system, post creation and management, and a like and comment system.",
+      link: "https://github.com/Jhay1212/SocMed"
     }
   ];
 
@@ -59,7 +71,7 @@ const page = () => {
        <div className="absolute top-0 left-0 w-full z-50">
         <Navbar />
       </div>
-      <div className="flex justify-center w-full h-full relative z-20 top-[-20%]">
+      <div className="flex justify-center w-full h-full  relative z-20 top-[-20%]">
         <div className="relative w-full max-w-4xl h-full flex items-center justify-center overflow-hidden">
 
           <div
@@ -70,8 +82,8 @@ const page = () => {
             }}
           >
             {slides.map((slide, index) => (
-              <div key={slide.id} className="w-full flex-shrink-0 flex justify-center items-center px-8">
-                <div className="slider h-3/5 w-3/4 text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/20">
+              <div key={slide.id} className="w-3/4 md:w-full flex-shrink-0 flex justify-center items-center px-8">
+                <div className="slider sm:mx-auto h-3/5 w-3/4 text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/20">
 
                   {/* Image Container */}
                   <div className="relative w-full h-64 mb-6 overflow-hidden rounded-xl">
@@ -85,7 +97,7 @@ const page = () => {
                   </div>
 
                   {/* Title */}
-                  <h2 className="text-white text-2xl font-bold mb-4">
+                  <h2 className="text-white text-2xl mt-2 pt-8 font-bold mb-4">
                     {slide.title}
                   </h2>
 
@@ -96,7 +108,7 @@ const page = () => {
 
                   {/* Action Button */}
                   <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    View Project
+                    <a href={slide.link} target="_blank" rel="noopener noreferrer">View Project</a>
                   </button>
                 </div>
               </div>
