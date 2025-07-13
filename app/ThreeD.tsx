@@ -1,5 +1,5 @@
 'use client';
-import React  from 'react'
+import React from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Stars, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useMemo } from 'react'
@@ -22,11 +22,11 @@ const createCircleTexture = () => {
 
         ctx.fillStyle = gradient
         ctx.fillRect(0, 0, 64, 64)
-    
+
     } else {
         console.error("2D context is not supported or failed to initialize.");
     }
-   
+
     const texture = new THREE.CanvasTexture(canvas)
     return texture
 }
@@ -87,7 +87,7 @@ const ThreeD = () => {
 
         <Canvas camera={{ position: [0, 0, 5] }}>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <OrbitControls autoRotate={true} enableDamping={true} />
+            <OrbitControls autoRotate={true} />
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 50, 10]} />
             <Stars
@@ -99,15 +99,7 @@ const ThreeD = () => {
                 fade={true}
                 speed={1}
             />
-            {/* <Stars
-                radius={100}
-                count={2500}
-                depth={80}
-                factor={3}
-                saturation={1}
-                fade={true}
-                speed={2}
-            /> */}
+    
             <CustomStars />
             <ambientLight intensity={3} />
         </Canvas>

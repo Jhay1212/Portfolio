@@ -1,7 +1,18 @@
-import React from 'react'
+import React from 'react';
 import Link from 'next/link';
-const Page = () => {
-    const skills = [
+
+interface Skill {
+    name: string;
+    level: number;
+}
+
+interface Achievement {
+    number: string;
+    label: string;
+}
+
+const Page: React.FC = () => {
+    const skills: Skill[] = [
         { name: 'React', level: 85 },
         { name: 'JavaScript', level: 85 },
         { name: 'TypeScript', level: 80 },
@@ -9,26 +20,34 @@ const Page = () => {
         { name: 'Python', level: 90 },
         { name: 'Next.js', level: 80 },
         { name: 'HTML/CSS', level: 90 },
-        { name: "Java", level: 60 },
-        { name: "C++", level: 50 },
-
+        { name: 'Java', level: 60 },
+        { name: 'C++', level: 50 },
         { name: 'CSS/Tailwind', level: 88 }
-    ]
+    ];
 
-    const achievements = [
+    const achievements: Achievement[] = [
         { number: '10+', label: 'Projects Completed' },
         { number: 'NA', label: 'Years Experience' },
         { number: '24/7', label: 'Problem Solving' }
-    ]
+    ];
+
+    const techStack: string[] = [
+        'React', 'Next.js', 'Node.js', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git'
+    ];
 
     return (
-        <main className=" w-full py-8  h-1/2 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900">
-            <div className="container mx-auto max-w-6xl h-1/2">
+        <main className="relative w-full min-h-screen py-8 px-4 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+            {/* Background Three.js Canvas - Make it non-interactive */}
+            <div className="absolute inset-0 pointer-events-none">
+                {/* Your ThreeD component would go here with pointer-events-none */}
+            </div>
+
+            <div className="relative z-10 container mx-auto max-w-6xl">
                 <div className="bg-black/50 backdrop-blur-sm rounded-3xl border border-gray-800 overflow-hidden shadow-2xl">
-                    <div className="grid lg:grid-cols-2 gap-0 min-h-3/4">
+                    <div className="grid lg:grid-cols-2 gap-0">
 
                         {/* Left Side - About Me */}
-                        <div className=" flex h-1/2  flex-col justify-center p-8 lg:p-12 bg-gradient-to-br from-blue-900/20 to-purple-900/20 relative">
+                        <div className="flex flex-col justify-center p-8 lg:p-12 bg-gradient-to-br from-blue-900/20 to-purple-900/20 relative min-h-[600px]">
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5"></div>
                             <div className="relative z-10">
                                 <div className="mb-6">
@@ -50,26 +69,25 @@ const Page = () => {
                                         From crafting pixel-perfect user interfaces to architecting robust backend systems,
                                         I bring ideas to life with clean, efficient code.
                                     </p>
-
-
                                 </div>
 
                                 <div className="mt-8 flex flex-wrap gap-4">
-                                    <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500
-                                     text-white rounded-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all 
-                                     duration-300 transform hover:scale-105">
-                                        <Link href='/myprojects'>My Projects</Link>
-                                    </button>
-                                    <button className="px-6 py-3 border border-gray-600 text-gray-300 rounded-xl font-semibold
-                                     hover:border-gray-400 hover:text-white transition-all duration-300">
-                                        Download CV
-                                    </button>
+                                    <Link href="/myprojects" className="inline-block">
+                                        <button className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-xl font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-300 transform hover:scale-105">
+                                            My Projects
+                                        </button>
+                                    </Link>
+                                    <Link href="/resume.pdf" download className="inline-block">
+                                        <button className="px-6 py-3 border border-gray-600 text-gray-300 rounded-xl font-semibold hover:border-gray-400 hover:text-white transition-all duration-300">
+                                            Download CV
+                                        </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
 
                         {/* Right Side - Skills & Stats */}
-                        <div className=" h-1/2 overscroll-y-scrollflex flex-col justify-center p-8 lg:p-12 bg-gradient-to-br from-gray-900/50 to-black/50">
+                        <div className="flex flex-col justify-center p-8 lg:p-12 bg-gradient-to-br from-gray-900/50 to-black/50 min-h-[600px] max-h-[800px] overflow-y-auto">
                             <div className="space-y-8">
 
                                 {/* Skills Section */}
@@ -78,7 +96,7 @@ const Page = () => {
                                         Skills & Expertise
                                     </h2>
                                     <div className="space-y-4">
-                                        {skills.map((skill, index) => (
+                                        {skills.map((skill: Skill, index: number) => (
                                             <div key={index} className="group">
                                                 <div className="flex justify-between items-center mb-2">
                                                     <span className="text-gray-300 font-medium">{skill.name}</span>
@@ -99,7 +117,7 @@ const Page = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-4">Achievements</h3>
                                     <div className="grid grid-cols-2 gap-4">
-                                        {achievements.map((achievement, index) => (
+                                        {achievements.map((achievement: Achievement, index: number) => (
                                             <div key={index} className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
                                                 <div className="text-2xl font-bold text-blue-400 mb-1">
                                                     {achievement.number}
@@ -116,7 +134,7 @@ const Page = () => {
                                 <div>
                                     <h3 className="text-xl font-bold text-white mb-4">Tech Stack</h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {['React', 'Next.js', 'Node.js', 'MongoDB', 'PostgreSQL', 'AWS', 'Docker', 'Git'].map((tech, index) => (
+                                        {techStack.map((tech: string, index: number) => (
                                             <span key={index} className="px-3 py-1 bg-gray-800 text-gray-300 rounded-full text-sm border border-gray-700 hover:border-blue-500/50 transition-all duration-300">
                                                 {tech}
                                             </span>
@@ -129,7 +147,7 @@ const Page = () => {
                 </div>
             </div>
         </main>
-    )
-}
+    );
+};
 
-export default Page
+export default Page;
