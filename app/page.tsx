@@ -7,6 +7,7 @@ import SplitType from "split-type";
 const Page: React.FC = () => {
   useGSAP(() => {
     const text = new SplitType(".name-head", { types: "chars" });
+    console.log(text);
     gsap.fromTo('.char', { opacity: 0, stagger: 0.05, scale: 5 }, { scale: 1, opacity: 1, stagger: .3, duration: 1 })
   }, [])
   const ref = useRef(null);

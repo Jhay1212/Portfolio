@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Home from '../assets/nexus/home.png';
 import SocMedHome from "../assets/socmed/home.png";
@@ -43,10 +43,9 @@ const Page: React.FC = () => {
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
-
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev + 1) % slides.length);
+  }, []);
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
@@ -59,8 +58,7 @@ const Page: React.FC = () => {
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
-
+  }, [nextSlide]);
   return (
     <div className='w-screen h-screen overscroll-none z-10'>
       <div className="absolute top-0 left-0 w-full z-50">
@@ -77,7 +75,7 @@ const Page: React.FC = () => {
             }}
           >
             {slides.map((slide, index) => (
-              <div key={slide.id} className="w-3/4 md:w-full flex-shrink-0 flex justify-center items-center px-8">
+              <div key={index} className="w-3/4 md:w-full flex-shrink-0 flex justify-center items-center px-8">
                 <div className="slider sm:mx-auto h-3/5 w-3/4 text-center bg-white/10 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/20">
 
                   {/* Image Container */}
