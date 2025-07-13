@@ -3,7 +3,7 @@ import React from 'react'
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 const page = () => {
-  let division ={x: 3, y: 3};
+  const division ={x: 3, y: 3};
   let totalAmount = division.x * division.y;
   let len = totalAmount * 1.1;
   let r = len / (Math.PI * 2);

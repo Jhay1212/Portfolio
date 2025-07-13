@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 
 const metadata: Metadata = {
   title: "Jose Alfonso Rivera Portfolio",
-  description: "Portfolio of Jose Alfonso Rivera created with Next.js",
+  description: "Portfolio of Jose Alfonso Rivera created with Next.js. A Full Stack Web Developer and Sofware Developer from Philippines.\nProficiend in JavaScript, Python, Django, PHP and other  different programming. language ",
 };
 
 export default function RootLayout({
@@ -28,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head> 
+        <meta name="description" content={metadata.description || ""} />
+        </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased realatve w-screen h-screen overflow-hidden`}
       >

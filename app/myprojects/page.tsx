@@ -1,9 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, OrbitControls, Stars } from '@react-three/drei';
 import Navbar from '../components/Navbar';
-import WebsiteShowCase from '../components/WebsiteShowCase';
 import Home from '../assets/nexus/home.png';
 import SocMedHome from "../assets/socmed/home.png";
 import EpHome from '../assets/ephsm/home.jpg';
@@ -12,7 +9,7 @@ import Image from 'next/image';
 import { Suspense } from 'react';
 import "../assets/projects.main.css";
 import { image } from 'framer-motion/client';
-
+import PortFolioHome from "../assets/portfolio/portfolio-home.png"
 const page = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -34,7 +31,7 @@ const page = () => {
     },
     {
       id: 3,
-      image: Home,
+      image: PortFolioHome,
       title: "Portfolio Website",
       description: "My portfolio website. Created using NextJS with GSAP and Tailwindcss!",
       link: "https://github.com/Jhay1212/Portfolio"
@@ -108,7 +105,7 @@ const page = () => {
 
                   {/* Action Button */}
                   <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 hover:shadow-lg">
-                    <a href={slide.link} target="_blank" rel="noopener noreferrer">View Project</a>
+                    <Link href={slide.link} target="_blank" rel="noopener noreferrer">View Project</Link>
                   </button>
                 </div>
               </div>
@@ -152,7 +149,6 @@ const page = () => {
 
       {/* WebsiteShowCase Component */}
       <div className="absolute bottom-0 left-0 w-full z-30">
-        <WebsiteShowCase />
       </div>
     </div>
   );

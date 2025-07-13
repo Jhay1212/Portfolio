@@ -1,11 +1,10 @@
 'use client';
-import { useThree } from "@react-three/fiber";
-import Navbar from './components/Navbar'
-import { useEffect, useRef } from 'react';
+import Link from "next/link";
+import React, {  useRef } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from "@gsap/react";
 import SplitType from "split-type";
-const page = () => {
+const page:React.FC = () => {
   useGSAP(() => {
     const text = new SplitType(".name-head", { types: "chars" });
     gsap.fromTo('.char', { opacity: 0, stagger: 0.05, scale:5 }, { scale: 1, opacity: 1, stagger: .3,duration: 1 })
@@ -24,7 +23,7 @@ const page = () => {
             <h1 className='name-head font-thin  pb-3 mb-3 tracking-[2vw] text-center  text-3xl md:text-5xl text-blue-500 leading-[10rem]'>jose Alfonso RIvera</h1>
             <div className="info" ref={ref}>
             <h2 className='text-center mb-3 '>Full Stack Web Developer/Software Developer</h2>
-            <small className="text-white py-2 font-bold tracking-[3px]">Email: <a href="mailto:rjhay1070@gmail.com">rjhay1070@gmail.com</a></small>
+            <small className="text-white py-2 font-bold tracking-[3px]">Email: <Link href="mailto:rjhay1070@gmail.com">rjhay1070@gmail.com</Link></small>
             </div>
           </div>
         </div>
