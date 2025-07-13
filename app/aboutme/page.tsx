@@ -14,6 +14,13 @@ interface Achievement {
 const Page: React.FC = () => {
     const skills: Skill[] = [
         { name: 'React', level: 85 },
+        { name: 'Vue.js', level: 75 },
+        {name: "Django", level: 85},
+        { name: 'PHP', level: 80 },
+        {name: "Laravel", level: 80},
+        { name: 'MySQL', level: 90 },
+        {name: "Rest API", level: 80},
+        
         { name: 'JavaScript', level: 85 },
         { name: 'TypeScript', level: 80 },
         { name: 'Node.js', level: 75 },
