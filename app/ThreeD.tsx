@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense } from 'react'
+import React  from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Stars, PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import { useMemo } from 'react'

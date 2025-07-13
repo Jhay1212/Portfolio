@@ -1,16 +1,16 @@
 import React from 'react'
 import Link from 'next/link';
-const page = () => {
+const Page = () => {
     const skills = [
         { name: 'React', level: 85 },
         { name: 'JavaScript', level: 85 },
         { name: 'TypeScript', level: 80 },
         { name: 'Node.js', level: 75 },
         { name: 'Python', level: 90 },
-        {name: 'Next.js', level: 80},
+        { name: 'Next.js', level: 80 },
         { name: 'HTML/CSS', level: 90 },
-        {name: "Java", level:60},
-        {name: "C++", level:50},
+        { name: "Java", level: 60 },
+        { name: "C++", level: 50 },
 
         { name: 'CSS/Tailwind', level: 88 }
     ]
@@ -51,7 +51,7 @@ const page = () => {
                                         I bring ideas to life with clean, efficient code.
                                     </p>
 
-                                    
+
                                 </div>
 
                                 <div className="mt-8 flex flex-wrap gap-4">
@@ -132,4 +132,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

@@ -6,11 +6,9 @@ import SocMedHome from "../assets/socmed/home.png";
 import EpHome from '../assets/ephsm/home.jpg';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Suspense } from 'react';
 import "../assets/projects.main.css";
-import { image } from 'framer-motion/client';
 import PortFolioHome from "../assets/portfolio/portfolio-home.png"
-const page = () => {
+const Page: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Your project data
@@ -65,7 +63,7 @@ const page = () => {
 
   return (
     <div className='w-screen h-screen overscroll-none z-10'>
-       <div className="absolute top-0 left-0 w-full z-50">
+      <div className="absolute top-0 left-0 w-full z-50">
         <Navbar />
       </div>
       <div className="flex justify-center w-full h-full  relative z-20 top-[-20%]">
@@ -140,8 +138,8 @@ const page = () => {
             key={index}
             onClick={() => goToSlide(index)}
             className={`transition-all duration-300 rounded-full border border-white/30 ${index === currentSlide
-                ? 'bg-white w-8 h-2'
-                : 'bg-white/40 hover:bg-white/60 w-2 h-2'
+              ? 'bg-white w-8 h-2'
+              : 'bg-white/40 hover:bg-white/60 w-2 h-2'
               }`}
           />
         ))}
@@ -154,4 +152,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
