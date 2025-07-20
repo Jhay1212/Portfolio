@@ -1,7 +1,5 @@
 'use client';
 import React from 'react';
-import Image from 'next/image';
-import Logo from '../assets/logo.svg';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import Link from 'next/link';
