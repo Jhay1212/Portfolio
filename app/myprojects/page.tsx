@@ -13,6 +13,7 @@ interface SlideData {
   id: number;
   image: StaticImageData;
   title: string;
+  previewLink: string,
   link: string;
   description: string;
 }
@@ -28,12 +29,14 @@ const Page: React.FC = () => {
       id: 1,
       image: Home,
       title: 'Nexus Cloud Website',
+      previewLink: "/myprojects/nexus",
       link: 'https://github.com/JesnerPerillo/NexusCloud-1',
       description: 'Created using React and ExpressJS. Built for the company of my ojt in web development.'
     },
     {
       id: 2,
       image: EpHome,
+      previewLink: "/myprojects/ephsm",
       link: 'https://github.com/Jhay1212/Philippines-History-Supplementary-Module',
       title: 'EPHSM Platform',
       description: 'A E-learning module platform for Philippine History. It has a user authentication system, post creation and management, and a like and comment system and interactive learning that includes pictures games and videos of Philippine History.'
@@ -41,6 +44,7 @@ const Page: React.FC = () => {
     {
       id: 3,
       image: PortFolioHome,
+      previewLink: "/myprojects/",
       title: 'Portfolio Website',
       description: 'My portfolio website. Created using NextJS with GSAP and Tailwindcss!',
       link: 'https://github.com/Jhay1212/Portfolio'
@@ -49,6 +53,7 @@ const Page: React.FC = () => {
       id: 4,
       image: SocMedHome,
       title: 'Social Media Clone Website',
+      previewLink: "/myprojects/socmed.clone",
       description: 'A social media website clone developed using Django and ReactJS. It has a user authentication system, post creation and management, and a like and comment system.',
       link: 'https://github.com/Jhay1212/SocMed'
     }
@@ -144,7 +149,8 @@ const Page: React.FC = () => {
                       priority={index === 0}
                       sizes="(max-width: 375px) 300px, (max-width: 640px) 400px, (max-width: 768px) 500px, (max-width: 1024px) 600px, 800px"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent
+                    " />
                   </div>
 
                   {/* Title */}
@@ -160,12 +166,22 @@ const Page: React.FC = () => {
                   {/* Action Button */}
                   <div className="flex justify-center">
                     <Link
+                      href={slide.previewLink}
+                      rel="noopener noreferrer"
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 xs:px-5 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500
+                       focus:ring-offset-2 focus:ring-offset-transparent
+                       text-xs xs:text-sm sm:text-base touch-manipulation mr-5"
+                    >
+                      Preview
+                    </Link>
+                    <Link
                       href={slide.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 xs:px-5 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-transparent text-xs xs:text-sm sm:text-base touch-manipulation"
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 xs:px-5 sm:px-6 lg:px-8 py-2 sm:py-2.5 lg:py-3 rounded-full font-semibold transform transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-transparent
+                       text-xs xs:text-sm sm:text-base touch-manipulation "
                     >
-                      View Project
+                      View Code
                     </Link>
                   </div>
                 </div>

@@ -1,48 +1,71 @@
-// 'use client';
-// import React from 'react'
-// import { Canvas } from '@react-three/fiber';
-// import { OrbitControls } from '@react-three/drei';
-// const Page = () => {
-//   const division ={x: 3, y: 3};
-//   const totalAmount = division.x * division.y;
-//   const len = totalAmount * 1.1;
-//   const r = len / (Math.PI * 2);
-//   const segAngle= (Math.PI *2 ) / len / 1.1
+'use client';
+import React, { useState } from 'react';
+import Image, { StaticImageData } from 'next/image';
 
-//   const Segment = () => {
-//     const gs = [];
-//     for(const i=0; i < totalAmount; i++){
-//       const x  =  i % division.x;
-//       const y = Math.floor(i / division.x);
+import Home from "@/app/assets/nexus/home.png";
+import About from "@/app/assets/nexus/about.png";
+import Course from "@/app/assets/nexus/course.png";
+import LightCourse from "@/app/assets/nexus/light-courses.png";
+import Process from "@/app/assets/nexus/process.png";
+import LIGHTHOME from "@/app/assets/nexus/light-home.png";
 
-//     }
-//     return(
-//       <mesh>
-//       <meshBasicMaterial color="white" />
-//       <cylinderGeometry args={[r, r, 1, 10,1 , true, 0, segAngle]} />
-//       </mesh>
-//     )
-//   }
-//   return (
-//     <div className='w-screen h-screen'>
-//       <div className="h-full  w-full flex justify-center items-center ">
-//         <Canvas  camera={{ position: [0, 0, 5] }}>
-//           <OrbitControls enableRotate={true} enablePan={true} enableDamping={true} enableZoom={true} />
-//           <Segment />
-//           </Canvas>
-//       </div>
-//     </div>
-//   )
-// }
-
-// export default Page
-
-import React from 'react'
-
-const Page = () => {
-  return (
-    <div>Page</div>
-  )
+interface SlideData {
+  id: number;
+  images: StaticImageData;
+  description: string;
 }
 
-export default Page
+const slides: SlideData[] = [
+  { id: 1, images: Home, description: "Nexus Homepage" },
+  { id: 2, images: About, description: "About Page" },
+  { id: 3, images: Course, description: "Course Page" },
+  { id: 4, images: LightCourse, description: "Light Courses" },
+  { id: 5, images: Process, description: "Process Page" },
+  { id: 6, images: LIGHTHOME, description: "Light Home Page" },
+];
+
+const Page = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+    alert('click')
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <main className="h-screen w-screen   text-white flex items-center justify-center translate-y-[-50px] z-50">
+      <div className="relative w-[80%] max-w-7xl overflow-hidden border border-white rounded-xl shadow-lg">
+        {/* Image */}
+        <Image
+          src={slides[currentIndex].images}
+          alt={slides[currentIndex].description}
+          className="w-full object-cover"
+        />
+
+        <div className="absolute bottom-0 left-0 bg-black bg-opacity-60 w-full text-center py-2 text-sm">
+          {slides[currentIndex].description}
+        </div>
+
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-50
+           bg-white bg-opacity-30 hover:bg-opacity-70 text-black p-2 rounded-full "
+        >
+          &lt;
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute z-999 right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-70 text-black p-2 rounded-full"
+        >
+         &gt;
+        </button>
+      </div>
+    </main>
+  );
+};
+
+export default Page;

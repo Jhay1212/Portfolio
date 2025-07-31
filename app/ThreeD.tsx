@@ -83,11 +83,12 @@ const CustomStars = () => {
 }
 
 const ThreeD = () => {
-    return (<div className="w-full h-full absolute top-0 ">
+    return (
+    <div className="w-full h-full absolute top-0 pointer-evente-none">
 
         <Canvas camera={{ position: [0, 0, 5] }}>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <OrbitControls autoRotate={true} />
+            <OrbitControls autoRotate={true} enableRotate={true} />
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 50, 10]} />
             <Stars
