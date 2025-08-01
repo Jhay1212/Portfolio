@@ -86,9 +86,9 @@ const ThreeD = () => {
     return (
     <div className="w-full h-full absolute top-0 pointer-evente-none">
 
-        <Canvas camera={{ position: [0, 0, 5] }}>
+        <Canvas camera={{ position: [0, 0, 5] }}  className='pointer-events-none '  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none' }}>
             <PerspectiveCamera makeDefault position={[0, 0, 5]} />
-            <OrbitControls autoRotate={true} enableRotate={true} />
+            <OrbitControls autoRotate={true} />
             <ambientLight intensity={0.5} />
             <pointLight position={[10, 50, 10]} />
             <Stars

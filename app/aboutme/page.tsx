@@ -66,8 +66,9 @@ const Page: React.FC = () => {
 
                                 <div className="space-y-6 text-gray-300 leading-relaxed">
                                     <p className="text-lg">
-                                        I am a passionate <span className="text-blue-400 font-semibold">Full Stack Developer/Software Developer</span> with
-                                        a love for creating innovative digital solutions. My journey in tech started with curiosity
+                                        I am a passionate <span className="text-blue-400 font-semibold">Jose Alfonso Rivera</span> a <span className="text-blue-400 font-semibold">
+                                            Full Stack Developer/Software Developer</span> with
+                                        a love for creating innovative digital solutions and learning diffrent things. My journey in tech started with curiosity
                                         and has evolved into a dedicated pursuit of excellence.
                                     </p>
 

@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
 
 import Home from "@/app/assets/socmed/home.png";
@@ -24,14 +24,22 @@ const slides: SlideData[] = [
 const Page = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-    alert('click')
-  };
+  // const prevSlide = () => {
+  //   setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  //   alert('click')
+  // };
 
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+  // const nextSlide = () => {
+  //   setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+  // };
+
+    useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 3000); // change slide every 4 seconds
+  
+    return () => clearInterval(interval); // clean up on unmount
+  }, []);
 
   return (
     <main className="h-screen w-screen   text-white flex items-center justify-center translate-y-[-50px] z-50">
@@ -47,7 +55,7 @@ const Page = () => {
           {slides[currentIndex].description}
         </div>
 
-        <button
+        {/* <button
           onClick={prevSlide}
           className="absolute left-4 top-1/2 transform -translate-y-1/2 z-50
            bg-white bg-opacity-30 hover:bg-opacity-70 text-black p-2 rounded-full "
@@ -59,7 +67,7 @@ const Page = () => {
           className="absolute z-999 right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-70 text-black p-2 rounded-full"
         >
          &gt;
-        </button>
+        </button> */}
       </div>
     </main>
   );
